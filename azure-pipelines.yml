@@ -31,7 +31,7 @@ jobs:
       pip install tox tox-docker
       tox
     displayName: 'tox'
-arm64_jobs:
+
   - job: Aarch64_Manylinux2014Build
     pool:
       vmImage: 'ubuntu-latest'
