@@ -44,8 +44,11 @@ jobs:
       docker run -v $(pwd):"${DOCKER_ROOT_DIRECTORY}":rw,z \
                  -e HOST_USER_ID \
                   "quay.io/pypa/manylinux2014_aarch64:latest" \
-                  bash -c "cd $DOCKER_ROOT_DIRECTORY && \
-                  ${PYBIN}/pip" install tox wheel tox-docker && \
+                  bash -c "cd $DOCKER_ROOT_DIRECTORY;
+                  "${PYBIN}/pip" install --upgrade pip && \
+                  "${PYBIN}/pip" install tox && \
+                  "${PYBIN}/pip" install tox-docker && \
+                  "${PYBIN}/pip" install wheel &&\
                   which tox && \
                   tox -e style && \
                   tox"                
