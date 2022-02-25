@@ -52,7 +52,7 @@ jobs:
                   "${PYBIN}/pip" install tox && \
                   "${PYBIN}/pip" install tox-docker && \
                   "${PYBIN}/pip" install wheel &&\
-                  which tox && \
+                  find -name tox && \
                   tox -e style && \
                   tox"                
     displayName: 'Running AArch64 build'
